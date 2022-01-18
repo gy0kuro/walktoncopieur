@@ -19,6 +19,8 @@
 require 'csv'
 require 'json'
 
+# array MAJ 18012022
+
 array =[
 '10.2.104.10',
 '10.60.104.10',
