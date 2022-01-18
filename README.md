@@ -1,9 +1,9 @@
 ## Script de récolte des stats d'impression des copieurs Kyocera (demande équipe bureautique)
 ### Prerequis
 
-- ruby
-- client snmp
-- accès et autorisations réseau nécessaires au bind snmp
+- ruby 1.9.3.484-2ubuntu1.5 ;
+- snmpwalk ;
+- accès et autorisations réseau nécessaires au bind SNMP.
 
 ### Fonctionnement
 
@@ -11,4 +11,4 @@
 
 ### Etat
 
-Actuellement en production sur la machine rac3. Il envoie les statistiques précises d'impression sous forme de csv, récoltées en snmp et à destination des personnes et équipes concernées : mail et webhooks.
+Actuellement en production sur la machine de supervision. Il envoie les statistiques d'impression sous forme de csv ; les compteurs (OIDs spécifiques) sont relevés via le protocole SNMP, un CSV est constitué, archivé, compressé et enfin envoyé aux personnes et équipes concernées (via mail et webhooks).
