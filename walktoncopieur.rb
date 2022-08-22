@@ -1,7 +1,7 @@
 #!/usr/bin/ruby -w
 # copieurs.rb
 #
-# Copyright (c) 2020 - Thomas GRATTON <thomas.gratton@ac-amiens.fr>
+# Copyright (c) 2022 - Thomas GRATTON <thomas.gratton@ac-amiens.fr>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -51,15 +51,14 @@ array =[
 '10.60.102.10',					#CIO CREIL
 '10.80.106.50',					#Paio Albert
 '10.2.104.10',					#CIO ST QUENTIN
-'10.2.101.10.',					#CIO Château-Thierry
+'10.68.9.10',					#CIO Château-Thierry
 '10.80.103.10',					#Cio Amiens Nord
 '10.60.105.10',					#Cio Noyon
 '10.80.81.10',					#Cio Soissons
-'192.168.1.10',					#Cio Beauvais
+'10.60.106.104',				#Cio Beauvais
 '10.64.128.55',					#Cio Péronne
 '10.2.103.10',					#Cio Laon
 '10.64.128.55',					#Circonscription Péronne
-'192.168.1.50',					#Circonscription Abbeville
 '172.26.184.29',				#Sdjes 80
 '172.26.184.114',				#Drajes 80
 '172.26.184.122',				#Drajes 80-1
@@ -167,7 +166,8 @@ time = Time.new
 date = time.strftime("%d-%m-%Y @ %H:%M:%S")
 command = `sed -i -e 's/\"\"\"//g' stats-copieurs.csv`
 command1 = `zip stats-copieurs.zip stats-copieurs.csv`
-command2 = `uuencode stats-copieurs.zip stats-copieurs.zip | mail -s "Stats copieurs - #{date}" tg@ac-amiens.fr`
+#command2 = `uuencode stats-copieurs.zip stats-copieurs.zip | mail -s "Stats copieurs - #{date}" tg@ac-amiens.fr`
+command2 = `uuencode stats-copieurs.zip stats-copieurs.zip | mail -s "Stats copieurs - #{date}" tg@ac-amiens.fr -a stats-copieurs.zip`
 
 notify_slack(
   'https://ratatouille.in.ac-amiens.fr:8065/hooks/dc8d79ju4pdz7jk3sraxjtpj4h',
