@@ -1,6 +1,8 @@
 #!/usr/bin/ruby -w
 # copieurs.rb
 #
+# Créé par - Thomas GRATTON <gratton.thomas@gmail.com>
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -19,11 +21,16 @@ require 'json'
 
 # ip des copieurs
 array =[
-'0.0.0.0',				#intitulé
+'IP_1',				#DESCRIPTION1
+'IP_2'				#DESCRIPTION2
+
 ]
 
+# ip des copieurs eco
+
 array_eco =[
-'0.0.0.0',				#intitulé
+'IP_1',				#DESCRIPTION1
+'IP_2'				#DESCRIPTION2
 ]
 
 # oids a recuperer
@@ -116,13 +123,12 @@ time = Time.new
 date = time.strftime("%d-%m-%Y @ %H:%M:%S")
 command = `sed -i -e 's/\"\"\"//g' stats-copieurs.csv`
 command1 = `zip stats-copieurs.zip stats-copieurs.csv`
-#command2 = `uuencode stats-copieurs.zip stats-copieurs.zip | mail -s "Stats copieurs - #{date}" your@mail.com`
-command2 = `uuencode stats-copieurs.zip stats-copieurs.zip | mail -s "Stats copieurs - #{date}" your@mail.com -a stats-copieurs.zip`
+command2 = `uuencode stats-copieurs.zip stats-copieurs.zip | mail -s "Stats copieurs - #{date}" yourname@yourcompany.com -a stats-copieurs.zip`
 
 notify_slack(
-  'https://yoururl/specificalphanumchain',
+  'https://youradress.com/hooks/youralfanumeric',
   'rapport-conso-kyocera',
   'kyocera',
-  'Your message',
-  'https://yoururl/pathtoimage',
+  'Rapport de consommation des copieurs généré et envoyé à YOURNAME.',
+  'https://youradress.com/hooks/youralfanumeric/static/stats1.png',
 )
