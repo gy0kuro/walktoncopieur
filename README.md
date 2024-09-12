@@ -11,4 +11,4 @@
 
 ### Etat
 
-Actuellement en production sur la machine de supervision. Il envoie les statistiques d'impression sous forme de csv ; les compteurs (OIDs spécifiques) sont relevés via le protocole SNMP, un CSV est constitué, archivé, compressé et enfin envoyé aux personnes et équipes concernées (via mail et webhooks).
+Il envoie les statistiques d'impression sous forme de csv ; les compteurs (OIDs spécifiques) sont relevés via le protocole SNMP, un CSV est constitué, archivé, compressé et enfin envoyé aux personnes et équipes concernées (via mail et webhooks).
